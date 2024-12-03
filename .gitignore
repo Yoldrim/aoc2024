@@ -3,3 +3,6 @@ node_modules/
 *input1.txt
 *input2.txt
 *test_input.txt
+*.dSYM
+main
+main2
