@@ -18,8 +18,7 @@ int string_utils_is_ascii_number(char c) {
   return c >= 48 && c <= 57;
 }
 
-int string_utils_find_all_indices(char *s, char *c, int *out) {
-  int *o = malloc(64 * sizeof(int));
+size_t string_utils_find_all_indices(char *s, char *c, int *out) {
   int i = 0;
   const char *pos = s;
   pos = strstr(pos, c);
@@ -29,7 +28,5 @@ int string_utils_find_all_indices(char *s, char *c, int *out) {
     pos++;
     pos = strstr(pos, c);
   }
-  // *out = *o;
-  free(o);
   return i;
 }

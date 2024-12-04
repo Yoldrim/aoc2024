@@ -6,3 +6,5 @@ node_modules/
 *.dSYM
 main
 main2
+main*.1
+main*.2

@@ -9,13 +9,13 @@ int main(void) {
     FILE *fptr = fopen("./src/03/input1.txt", "r");
 
     // If the file exist
-    if(fptr == NULL) {
+    if (fptr == NULL) {
         printf("Not able to open the file.");
         return 1;
     }
 
     LoadedFile lf;
-    file_utils_read_file(fptr, &lf);
+    file_utils_read_file(fptr, &lf, 1);
     printf("File size: %ld\nFile:\"%s\"\n", lf.size, lf.data);
 
     int agg = 0;

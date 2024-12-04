@@ -17,12 +17,16 @@ long file_utils_get_file_size(FILE *fptr) {
     return pos;
 }
 
-void file_utils_read_file(FILE *fptr, LoadedFile *file) {
+void file_utils_read_file(FILE *fptr, LoadedFile *file, int skipNewlines) {
     long fileSize = file_utils_get_file_size(fptr);
     file->size = fileSize;
     file->data = (char *)malloc(fileSize * sizeof(char));
 
     for(int i = 0; i < fileSize; i++) {
-        file->data[i] = fgetc(fptr);
+        char ch = fgetc(fptr);
+        if (skipNewlines && ch == '\n') {
+            ch = fgetc(fptr);
+        }
+        file->data[i] = ch;
     }
 }

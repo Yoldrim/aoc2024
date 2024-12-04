@@ -9,13 +9,13 @@ int main(void) {
     FILE *fptr = fopen("./src/03/input1.txt", "r");
 
     // If the file exist
-    if(fptr == NULL) {
+    if (fptr == NULL) {
         printf("Not able to open the file.");
         return 1;
     }
 
     LoadedFile lf;
-    file_utils_read_file(fptr, &lf);
+    file_utils_read_file(fptr, &lf, 1);
     printf("File size: %ld\nFile:\"%s\"\n", lf.size, lf.data);
 
     int *doI = malloc(1024 * sizeof(int));
@@ -73,7 +73,8 @@ int main(void) {
                     printf("Adding %i * %i to agg: %i\n", m[0], m[1], agg);
                     agg += m[0] * m[1];
                 } else {
-                    printf("Not adding. biggestDoIndex: %i, biggestDontIndex %i, posIndex: %i\n", biggestDoIndex, biggestDontIndex, posIndex);
+                    printf("Not adding. biggestDoIndex: %i, biggestDontIndex %i, posIndex: %i\n", biggestDoIndex,
+                           biggestDontIndex, posIndex);
                 }
             }
         }
